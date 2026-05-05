@@ -19,35 +19,41 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    adicionarItem(state, action: PayloadAction<MenuItem>) {
-      const existing = state.items.find((i) => i.id === action.payload.id)
+    addItem(state, action: PayloadAction<MenuItem>) {
+      const existing = state.items.find((item) => item.id === action.payload.id)
       if (existing) {
         existing.quantity += 1
       } else {
         state.items.push({ ...action.payload, quantity: 1 })
       }
     },
-    removerItem(state, action: PayloadAction<number>) {
-      state.items = state.items.filter((i) => i.id !== action.payload)
+    removeItem(state, action: PayloadAction<number>) {
+      state.items = state.items.filter((item) => item.id !== action.payload)
     },
-    limparCarrinho(state) {
+    clearCart(state) {
       state.items = []
     },
-    abrirCarrinho(state) {
+    openCart(state) {
       state.isOpen = true
     },
-    fecharCarrinho(state) {
+    closeCart(state) {
       state.isOpen = false
     },
   },
 })
 
 export const {
-  adicionarItem,
-  removerItem,
-  limparCarrinho,
-  abrirCarrinho,
-  fecharCarrinho,
+  addItem,
+  removeItem,
+  clearCart,
+  openCart,
+  closeCart,
 } = cartSlice.actions
+
+export const adicionarItem = addItem
+export const removerItem = removeItem
+export const limparCarrinho = clearCart
+export const abrirCarrinho = openCart
+export const fecharCarrinho = closeCart
 
 export default cartSlice.reducer

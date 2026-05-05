@@ -6,27 +6,35 @@ export const Overlay = styled.div`
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 900;
-  display: flex;
-  justify-content: flex-end;
 `
 
 export const Sidebar = styled.aside`
-  background-color: ${colors.primary};
-  width: 360px;
-  max-width: 100%;
-  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 901;
+  background-color: ${colors.cartDark};
+  width: 100%;
+  max-width: 360px;
+  height: 100vh;
   overflow-y: auto;
-  padding: 32px 8px;
+  padding: 40px 16px 24px;
   display: flex;
   flex-direction: column;
 `
 
+export const Quantity = styled.p`
+  color: ${colors.white};
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+`
+
 export const Empty = styled.p`
-  color: ${colors.cream};
+  color: ${colors.white};
   font-size: 14px;
   font-weight: 700;
-  text-align: center;
-  padding: 32px 16px;
+  padding: 24px 0;
 `
 
 export const ItemList = styled.ul`
@@ -36,82 +44,84 @@ export const ItemList = styled.ul`
 `
 
 export const Item = styled.li`
-  background-color: ${colors.cream};
-  display: grid;
-  grid-template-columns: 80px 1fr 48px;
-  gap: 8px;
-  margin-bottom: 16px;
-  padding: 8px;
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 8px 0;
 `
 
 export const ItemImage = styled.img`
   width: 80px;
   height: 80px;
   object-fit: cover;
+  flex-shrink: 0;
 `
 
 export const ItemInfo = styled.div`
+  flex: 1;
   min-width: 0;
 `
 
 export const ItemName = styled.p`
-  color: ${colors.primary};
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1.2;
+  color: ${colors.white};
+  font-size: 14px;
+  font-weight: 700;
+`
+
+export const ItemTag = styled.span`
+  display: inline-block;
+  color: ${colors.white};
+  border: 1px solid #d9d9d9;
+  font-size: 11px;
+  margin: 6px 0;
+  padding: 2px 6px;
 `
 
 export const ItemPrice = styled.p`
-  color: ${colors.primary};
+  color: ${colors.white};
   font-size: 14px;
   font-weight: 700;
-  margin-top: 12px;
 `
 
 export const RemoveBtn = styled.button`
-  align-self: end;
   background: none;
   border: none;
-  color: ${colors.primary};
+  color: ${colors.white};
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 900;
   padding: 0;
-  text-decoration: underline;
+  align-self: flex-start;
 `
 
 export const Total = styled.div`
   display: flex;
   justify-content: space-between;
-  color: ${colors.cream};
+  color: ${colors.white};
   font-size: 14px;
   font-weight: 700;
   margin: 16px 0;
 `
 
 export const CheckoutBtn = styled.button`
-  background-color: ${colors.cream};
-  color: ${colors.primary};
+  background-color: ${colors.primary};
+  border: none;
+  color: ${colors.white};
+  cursor: pointer;
   font-size: 14px;
   font-weight: 700;
   padding: 12px;
-  border: none;
-  cursor: pointer;
   width: 100%;
   margin-bottom: 8px;
-
-  &:hover {
-    background-color: ${colors.white};
-  }
 `
 
 export const CloseBtn = styled.button`
   background: none;
-  border: 2px solid ${colors.cream};
-  color: ${colors.cream};
+  border: 1px solid ${colors.white};
+  color: ${colors.white};
+  cursor: pointer;
   font-size: 14px;
   font-weight: 700;
   padding: 10px;
-  cursor: pointer;
   width: 100%;
 `

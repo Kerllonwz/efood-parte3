@@ -1,4 +1,4 @@
-import { fecharCarrinho, removerItem } from '../../store/cartSlice'
+import { closeCart, removeItem } from '../../store/cartSlice'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import * as S from './styles'
 
@@ -16,10 +16,12 @@ const Cart = ({ onContinue }: Props) => {
   if (!isOpen) return null
 
   return (
-    <S.Overlay onClick={() => dispatch(fecharCarrinho())}>
-      <S.Sidebar onClick={(event) => event.stopPropagation()}>
+    <>
+      <S.Overlay onClick={() => dispatch(closeCart())} />
+      <S.Sidebar>
+        <S.Quantity>{items.length} item(ns) no carrinho</S.Quantity>
         {items.length === 0 ? (
-          <S.Empty>O carrinho esta vazio. Adicione itens para continuar.</S.Empty>
+          <S.Empty>O carrinho está vazio. Adicione itens para continuar.</S.Empty>
         ) : (
           <>
             <S.ItemList>
@@ -28,13 +30,14 @@ const Cart = ({ onContinue }: Props) => {
                   <S.ItemImage src={item.foto} alt={item.nome} />
                   <S.ItemInfo>
                     <S.ItemName>{item.nome}</S.ItemName>
+                    <S.ItemTag>{item.porcao}</S.ItemTag>
                     <S.ItemPrice>
                       R$ {formatPrice(item.preco)}
                       {item.quantity > 1 && ` x ${item.quantity}`}
                     </S.ItemPrice>
                   </S.ItemInfo>
-                  <S.RemoveBtn onClick={() => dispatch(removerItem(item.id))}>
-                    Remover
+                  <S.RemoveBtn onClick={() => dispatch(removeItem(item.id))}>
+                    x
                   </S.RemoveBtn>
                 </S.Item>
               ))}
@@ -44,15 +47,15 @@ const Cart = ({ onContinue }: Props) => {
               <span>R$ {formatPrice(total)}</span>
             </S.Total>
             <S.CheckoutBtn onClick={onContinue}>
-              Continuar com a entrega
+              Continuar com a compra
             </S.CheckoutBtn>
           </>
         )}
-        <S.CloseBtn onClick={() => dispatch(fecharCarrinho())}>
+        <S.CloseBtn onClick={() => dispatch(closeCart())}>
           Fechar carrinho
         </S.CloseBtn>
       </S.Sidebar>
-    </S.Overlay>
+    </>
   )
 }
 

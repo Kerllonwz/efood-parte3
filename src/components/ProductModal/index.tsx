@@ -31,10 +31,9 @@ const ProductModal = ({ item, onClose }: Props) => {
         <S.ProductInfo>
           <S.ProductTitle>{item.nome}</S.ProductTitle>
           <S.ProductDescription>{item.descricao}</S.ProductDescription>
-          <S.ProductPortion>Porcao: {item.porcao}</S.ProductPortion>
-          <S.AddButton onClick={handleAdd}>
-            Adicionar ao carrinho - R$ {formatPrice(item.preco)}
-          </S.AddButton>
+          <S.ProductPortion>Porção: {item.porcao}</S.ProductPortion>
+          <S.Price>R$ {formatPrice(item.preco)}</S.Price>
+          <S.AddButton onClick={handleAdd}>Adicionar ao carrinho</S.AddButton>
         </S.ProductInfo>
       </S.Modal>
     </S.Overlay>
