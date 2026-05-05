@@ -4,7 +4,7 @@ import { colors } from '../../styles'
 export const Overlay = styled.div`
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 900;
 `
 
@@ -13,17 +13,18 @@ export const Sidebar = styled.aside`
   right: 0;
   top: 0;
   z-index: 901;
-  background-color: ${colors.cartDark};
+  background-color: ${colors.primary};
   width: 100%;
   max-width: 360px;
   height: 100vh;
   overflow-y: auto;
-  padding: 40px 16px 24px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
 `
 
 export const Quantity = styled.p`
+  display: none;
   color: ${colors.white};
   font-size: 16px;
   font-weight: 700;
@@ -46,8 +47,9 @@ export const ItemList = styled.ul`
 export const Item = styled.li`
   display: flex;
   gap: 12px;
-  border-bottom: 1px solid #d9d9d9;
-  padding: 8px 0;
+  background-color: ${colors.cream};
+  margin-bottom: 16px;
+  padding: 8px;
 `
 
 export const ItemImage = styled.img`
@@ -63,22 +65,22 @@ export const ItemInfo = styled.div`
 `
 
 export const ItemName = styled.p`
-  color: ${colors.white};
+  color: ${colors.primary};
   font-size: 14px;
   font-weight: 700;
 `
 
 export const ItemTag = styled.span`
-  display: inline-block;
-  color: ${colors.white};
-  border: 1px solid #d9d9d9;
+  display: none;
+  color: ${colors.primary};
+  border: 1px solid ${colors.primary};
   font-size: 11px;
   margin: 6px 0;
   padding: 2px 6px;
 `
 
 export const ItemPrice = styled.p`
-  color: ${colors.white};
+  color: ${colors.primary};
   font-size: 14px;
   font-weight: 700;
 `
@@ -86,7 +88,7 @@ export const ItemPrice = styled.p`
 export const RemoveBtn = styled.button`
   background: none;
   border: none;
-  color: ${colors.white};
+  color: ${colors.primary};
   cursor: pointer;
   font-size: 18px;
   font-weight: 900;
@@ -104,9 +106,9 @@ export const Total = styled.div`
 `
 
 export const CheckoutBtn = styled.button`
-  background-color: ${colors.primary};
+  background-color: ${colors.cream};
   border: none;
-  color: ${colors.white};
+  color: ${colors.primary};
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
@@ -116,9 +118,10 @@ export const CheckoutBtn = styled.button`
 `
 
 export const CloseBtn = styled.button`
-  background: none;
-  border: 1px solid ${colors.white};
-  color: ${colors.white};
+  display: none;
+  background: ${colors.cream};
+  border: 1px solid ${colors.cream};
+  color: ${colors.primary};
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
