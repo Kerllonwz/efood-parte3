@@ -42,7 +42,7 @@ const Header = ({ variant = 'hero' }: HeaderProps) => {
             <GiKnifeFork aria-hidden="true" />
           </S.Logo>
           <S.CartButton type="button" onClick={() => dispatch(abrirCarrinho())}>
-            {itemCount} produto{itemCount === 1 ? '' : 's'} no carrinho
+            {itemCount} produto(s) no carrinho
           </S.CartButton>
         </S.Nav>
       </div>
